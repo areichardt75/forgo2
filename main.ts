@@ -1,20 +1,21 @@
-// A megnyomasara iranyt valt a forgas
-input.onButtonPressed(Button.A, function () {
+//  A megnyomasara iranyt valt a forgas
+input.onButtonPressed(Button.A, function on_button_pressed_a() {
+    
     if (irany > 0) {
         if (sebesseg == 1) {
             irany = -1
         } else {
             irany = -2
         }
+        
+    } else if (sebesseg == 1) {
+        irany = 1
     } else {
-        if (sebesseg == 1) {
-            irany = 1
-        } else {
-            irany = 2
-        }
+        irany = 2
     }
+    
 })
-function forgat (num: number) {
+function forgat(num: number) {
     if (num == 1) {
         basic.showLeds(`
             . . # . .
@@ -24,6 +25,7 @@ function forgat (num: number) {
             . . # . .
             `)
     }
+    
     if (num == 3) {
         basic.showLeds(`
             # . . . .
@@ -33,6 +35,7 @@ function forgat (num: number) {
             . . . . #
             `)
     }
+    
     if (num == 5) {
         basic.showLeds(`
             . . . . .
@@ -42,6 +45,7 @@ function forgat (num: number) {
             . . . . .
             `)
     }
+    
     if (num == 7) {
         basic.showLeds(`
             . . . . #
@@ -51,6 +55,7 @@ function forgat (num: number) {
             # . . . .
             `)
     }
+    
     if (irany > 0) {
         if (num == 2) {
             basic.showLeds(`
@@ -61,6 +66,7 @@ function forgat (num: number) {
                 . . . # .
                 `)
         }
+        
         if (num == 4) {
             basic.showLeds(`
                 . . . . .
@@ -70,6 +76,7 @@ function forgat (num: number) {
                 . . . . .
                 `)
         }
+        
         if (num == 6) {
             basic.showLeds(`
                 . . . . .
@@ -79,6 +86,7 @@ function forgat (num: number) {
                 . . . . .
                 `)
         }
+        
         if (num == 8) {
             basic.showLeds(`
                 . . . # .
@@ -88,6 +96,7 @@ function forgat (num: number) {
                 . # . . .
                 `)
         }
+        
     } else {
         if (num == 2) {
             basic.showLeds(`
@@ -98,6 +107,7 @@ function forgat (num: number) {
                 . . . # .
                 `)
         }
+        
         if (num == 4) {
             basic.showLeds(`
                 . . . . .
@@ -107,6 +117,7 @@ function forgat (num: number) {
                 . . . . .
                 `)
         }
+        
         if (num == 6) {
             basic.showLeds(`
                 . . . . .
@@ -116,6 +127,7 @@ function forgat (num: number) {
                 . . . . .
                 `)
         }
+        
         if (num == 8) {
             basic.showLeds(`
                 . . . # .
@@ -125,22 +137,26 @@ function forgat (num: number) {
                 . # . . .
                 `)
         }
+        
     }
+    
 }
-input.onButtonPressed(Button.B, function () {
+
+input.onButtonPressed(Button.B, function on_button_pressed_b() {
+    
     if (irany > 0) {
         if (sebesseg == 1) {
             irany = 2
         } else {
             irany = 1
         }
+        
+    } else if (sebesseg == 1) {
+        irany = -2
     } else {
-        if (sebesseg == 1) {
-            irany = -2
-        } else {
-            irany = -2
-        }
+        irany = -2
     }
+    
 })
 let sebesseg = 0
 let irany = 0
@@ -149,7 +165,8 @@ irany = 2
 sebesseg = 2
 basic.showIcon(IconNames.Heart)
 basic.pause(1000)
-basic.forever(function () {
+basic.forever(function on_forever() {
+    
     while (true) {
         basic.pause(100)
         forgat(forgas)
@@ -158,8 +175,10 @@ basic.forever(function () {
         if (forgas > 9) {
             forgas = 1
         }
+        
         if (forgas < 1) {
             forgas = 9
         }
+        
     }
 })
